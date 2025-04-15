@@ -1,0 +1,156 @@
+.titulo {
+    margin-top: 20px;
+    text-align: center;
+    color: #ad11dd;
+}
+
+.contenedor-reglas {
+    align-content: center;
+    background-color: #f8f9fa;
+    padding: 40px 24px;
+    border-radius: 5px;
+    border: rgb(104, 14, 179) 1px solid;
+    margin: auto;
+    max-width: 450px;
+    margin-top: 20px;
+    font-size: large;
+}
+#resultadoContrasena{
+    background-color: black;
+    color: white;
+    justify-items: center;
+}
+
+.contenedor-resultado {
+    align-content: center;
+    background-color: #f8f9fa;
+    padding: 40px 24px;
+    border-radius: 5px;
+    border: rgb(104, 14, 179) 1px solid;
+    margin: auto;
+    max-width: 450px;
+    margin-top: 20px;
+    font-size: large;
+}
+
+.validador-resultado {
+    margin-bottom: 2px;
+}
+
+.entrada-generador,
+.entrada-validador {
+    background: none;
+    border: none;
+    font-size: 20px;
+    margin-top: auto;
+    outline: none;
+    width: 100%;
+    resize: none;
+    overflow: hidden;
+}
+
+.icono-ver-contrasena {
+    position: absolute;
+    top: 9px;
+    right: 5px;
+    height: 40px;
+    font-size: 2rem;
+    width: 40px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: #959494;
+}
+
+.icono-ver-contrasena:hover {
+    color: #818181;
+    cursor: pointer;
+}
+
+#botonGenerar {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 8px 12px;
+    margin: 14px 5px 7px 5px;
+    background-color: rgb(144, 17, 241);
+}
+
+.botones {
+    display: flex;
+}
+
+.configuraciones {
+    align-content: center;
+    align-items: center;
+}
+
+.entrada-longitud {
+    width: 80px;
+    border: none;
+    border-bottom: 2px solid #919191;
+    outline: none;
+    overflow: hidden;
+    margin-left: 5px;
+}
+
+.wrapper-input-password {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.mensaje-error {
+    color: red;
+    font-weight: 600;
+}
+.fuerza-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .etiqueta-fuerza {
+    font-weight: bold;
+    color: #aaa;
+  }
+  
+  .texto-fuerza {
+    min-width: 60px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .barras-fuerza {
+    display: flex;
+    gap: 4px;
+  }
+  
+  .barra {
+    width: 10px;
+    height: 20px;
+    background-color: #333;
+    border: 1px solid #555;
+    transition: background-color 0.3s ease;
+  }
+  
+  .barra.activa {
+    background-color: #facc15; /* default yellow */
+  }
+  
+  /* Colores por nivel */
+  .barra.debil {
+    background-color: #dc2626; /* rojo */
+  }
+  .barra.media {
+    background-color: #f97316; /* naranja */
+  }
+  .barra.dificil {
+    background-color: #facc15; /* amarillo */
+  }
+  .barra.robusta {
+    background-color: #22c55e; /* verde */
+  }
+  
+  
