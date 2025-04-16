@@ -13,11 +13,11 @@ function obtenerNumeroAleatorio() {
 }
 
 function obtenerSimboloAleatorio() {
-	const simbolos = "!@#$%{}_-[]";
+	let simbolos = "!@#$%{}_-[]";
 	return simbolos[Math.floor(Math.random() * simbolos.length)];
 }
 
-const funcionesAleatorias = {
+let funcionesAleatorias = {
 	minuscula: obtenerMinusculaAleatoria,
 	mayuscula: obtenerMayusculaAleatoria,
 	numero: obtenerNumeroAleatorio,
@@ -25,19 +25,19 @@ const funcionesAleatorias = {
 };
 
 // Evento al hacer clic en el botón de generar
-const generar = document.getElementById("botonGenerar");
+let generar = document.getElementById("botonGenerar");
 generar.addEventListener("click", () => {
-	generarContraseña();
+	manejarGeneracionContraseña();
 });
 
-const generarContraseña = () => {
-	const longitud = document.getElementById("longitudContrasena").value;
-	const incluirMayuscula = document.getElementById("incluirMayusculas").checked;
-	const incluirMinuscula = document.getElementById("incluirMinusculas").checked;
-	const incluirNumero = document.getElementById("incluirNumeros").checked;
-	const incluirSimbolo = document.getElementById("incluirSimbolos").checked;
-	const resultado = document.getElementById("resultadoContrasena");
-    const fuerza = evaluarFuerzaContraseña(resultado.value);
+let manejarGeneracionContraseña = () => {
+	let longitud = document.getElementById("longitudContrasena").value;
+	let incluirMayuscula = document.getElementById("incluirMayusculas").checked;
+	let incluirMinuscula = document.getElementById("incluirMinusculas").checked;
+	let incluirNumero = document.getElementById("incluirNumeros").checked;
+	let incluirSimbolo = document.getElementById("incluirSimbolos").checked;
+	let resultado = document.getElementById("resultadoContrasena");
+    let fuerza = evaluarFuerzaContraseña(resultado.value);
 
 
 	resultado.value = generarContraseña(
@@ -50,7 +50,7 @@ const generarContraseña = () => {
 	);
 };
 document.getElementById("btnCopiar").addEventListener("click", () => {
-	const textarea = document.getElementById("resultadoContrasena");
+	let textarea = document.getElementById("resultadoContrasena");
 	if (textarea.value) {
 		navigator.clipboard.writeText(textarea.value)
 			.then(() => {
@@ -65,8 +65,8 @@ document.getElementById("btnCopiar").addEventListener("click", () => {
 });
 
 function evaluarFuerzaContraseña(contraseña) {
-	const nivelTexto = document.getElementById("nivelFuerzaTexto");
-	const barras = [
+	let nivelTexto = document.getElementById("nivelFuerzaTexto");
+	let barras = [
 		document.getElementById("barra1"),
 		document.getElementById("barra2"),
 		document.getElementById("barra3"),
@@ -80,7 +80,7 @@ function evaluarFuerzaContraseña(contraseña) {
 	if (/[0-9]/.test(contraseña)) fuerza++;
 	if (/[^A-Za-z0-9]/.test(contraseña)) fuerza++;
 
-	const nivel = Math.min(fuerza, 4);
+	let nivel = Math.min(fuerza, 4);
 
 	let texto = "-";
 	let clase = "";
@@ -112,12 +112,12 @@ function evaluarFuerzaContraseña(contraseña) {
 // Función para generar la contraseña
 function generarContraseña(minuscula, mayuscula, numero, simbolo, longitud) {
 	let contraseñaGenerada = "";
-	const tiposSeleccionados = minuscula + mayuscula + numero + simbolo;
+	let tiposSeleccionados = minuscula + mayuscula + numero + simbolo;
 	if(tiposSeleccionados === 0) {
-		alert("Selecciona una opción");
-		return;
+		alert("Selecciona una opción para poder generar una contraseña");
+		return "";
 	}
-	const tiposArr = [
+	let tiposArr = [
 		{ minuscula },
 		{ mayuscula },
 		{ numero },
@@ -126,10 +126,19 @@ function generarContraseña(minuscula, mayuscula, numero, simbolo, longitud) {
 	debugger;
 	for (let i = 0; i < longitud; i += tiposSeleccionados) {
 		tiposArr.forEach((tipo) => {
-			const nombreFuncion = Object.keys(tipo)[0];
+			let nombreFuncion = Object.keys(tipo)[0];
 			contraseñaGenerada += funcionesAleatorias[nombreFuncion]();
 		});
 	}
-	const contraseñaFinal = contraseñaGenerada.slice(0, longitud);
+	let contraseñaFinal = contraseñaGenerada.slice(0, longitud);
 	return contraseñaFinal;
 }
+let inputLongitud = document.getElementById("longitudContrasena");
+let valorLongitud = document.getElementById("valorLongitud");
+
+inputLongitud.addEventListener("input", () => {
+	valorLongitud.textContent = inputLongitud.value;
+});
+
+// Inicializar al cargar
+valorLongitud.textContent = inputLongitud.value;

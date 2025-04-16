@@ -2,6 +2,7 @@
     margin-top: 20px;
     text-align: center;
     color: #ad11dd;
+    font-size: 3rem;
 }
 
 .contenedor-reglas {
@@ -11,9 +12,11 @@
     border-radius: 5px;
     border: rgb(104, 14, 179) 1px solid;
     margin: auto;
-    max-width: 450px;
+    max-width: 600px;
     margin-top: 20px;
     font-size: large;
+    box-shadow: 7px 7px 56px 11px rgba(197,26,240,0.48);
+    font-size: 1.5rem;
 }
 #resultadoContrasena{
     background-color: black;
@@ -28,43 +31,44 @@
     border-radius: 5px;
     border: rgb(104, 14, 179) 1px solid;
     margin: auto;
-    max-width: 450px;
+    max-width: 600px;
     margin-top: 20px;
     font-size: large;
+    box-shadow: 7px 7px 56px 11px rgba(197,26,240,0.48);
+    font-size: 1.5rem;
+}
+#resultadoContrasena{
+  font-size: 1.5rem;
+}
+#btnCopiar {
+  background-color: #2d2d2d;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
 }
 
-.validador-resultado {
-    margin-bottom: 2px;
+#btnCopiar:hover {
+background-color: #444;
+}
+.contenedor-copiar {
+	display: flex;
+	align-items: center;
+	gap: 10px;
 }
 
-.entrada-generador,
-.entrada-validador {
-    background: none;
-    border: none;
-    font-size: 20px;
-    margin-top: auto;
-    outline: none;
-    width: 100%;
-    resize: none;
-    overflow: hidden;
-}
-
-.icono-ver-contrasena {
-    position: absolute;
-    top: 9px;
-    right: 5px;
-    height: 40px;
-    font-size: 2rem;
-    width: 40px;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    color: #959494;
-}
-
-.icono-ver-contrasena:hover {
-    color: #818181;
-    cursor: pointer;
+.entrada-contrasena {
+	flex: 1;
+	padding: 10px;
+	font-size: 1rem;
+	background-color: black;
+	color: white;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	resize: none;
 }
 
 #botonGenerar {
@@ -86,30 +90,19 @@
     align-items: center;
 }
 
-.entrada-longitud {
-    width: 80px;
-    border: none;
-    border-bottom: 2px solid #919191;
-    outline: none;
-    overflow: hidden;
-    margin-left: 5px;
-}
-
-.wrapper-input-password {
-    margin-bottom: 5px;
-    font-weight: 500;
-}
-
-.mensaje-error {
-    color: red;
-    font-weight: 600;
-}
 .fuerza-contenedor {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #222;
+  color: white;
+  justify-content: space-between;
+}
+
   
   .etiqueta-fuerza {
     font-weight: bold;
