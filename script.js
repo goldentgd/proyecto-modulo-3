@@ -36,7 +36,7 @@ let manejarGeneracionContraseña = () => {
 	let incluirNumero = document.getElementById("incluirNumeros").checked;
 	let incluirSimbolo = document.getElementById("incluirSimbolos").checked;
 	let resultado = document.getElementById("resultadoContrasena");
-    let fuerza = evaluarFuerzaContraseña(resultado.value);
+    //let fuerza = evaluarFuerzaContraseña(resultado.value);
 
 
 	resultado.value = generarContraseña(
@@ -46,6 +46,7 @@ let manejarGeneracionContraseña = () => {
 		incluirSimbolo,
 		longitud
 	);
+	evaluarFuerzaContraseña(resultado.value);
 };
 //botón copiar
 document.getElementById("btnCopiar").addEventListener("click", () => {
@@ -117,7 +118,6 @@ function generarContraseña(minuscula, mayuscula, numero, simbolo, longitud) {
 		{ numero },
 		{ simbolo }
 	].filter((item) => Object.values(item)[0]);
-	debugger;
 	for (let i = 0; i < longitud; i += tiposSeleccionados) {
 		tiposArr.forEach((tipo) => {
 			let nombreFuncion = Object.keys(tipo)[0];
@@ -134,5 +134,5 @@ inputLongitud.addEventListener("input", () => {
 	valorLongitud.textContent = inputLongitud.value;
 });
 
-// Inicializar al cargar
+
 valorLongitud.textContent = inputLongitud.value;
