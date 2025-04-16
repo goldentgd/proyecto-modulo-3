@@ -1,5 +1,4 @@
-"use strict";
-
+//funciones aleatorias de los check
 function obtenerMinusculaAleatoria() {
 	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
@@ -16,7 +15,7 @@ function obtenerSimboloAleatorio() {
 	let simbolos = "!@#$%{}_-[]";
 	return simbolos[Math.floor(Math.random() * simbolos.length)];
 }
-
+//tipo de función
 let funcionesAleatorias = {
 	minuscula: obtenerMinusculaAleatoria,
 	mayuscula: obtenerMayusculaAleatoria,
@@ -24,7 +23,7 @@ let funcionesAleatorias = {
 	simbolo: obtenerSimboloAleatorio,
 };
 
-// Evento al hacer clic en el botón de generar
+// evento al hacer clic en el botón de generar
 let generar = document.getElementById("botonGenerar");
 generar.addEventListener("click", () => {
 	manejarGeneracionContraseña();
@@ -45,22 +44,17 @@ let manejarGeneracionContraseña = () => {
 		incluirMayuscula,
 		incluirNumero,
 		incluirSimbolo,
-		longitud,
-		fuerza
+		longitud
 	);
 };
+//botón copiar
 document.getElementById("btnCopiar").addEventListener("click", () => {
 	let textarea = document.getElementById("resultadoContrasena");
 	if (textarea.value) {
 		navigator.clipboard.writeText(textarea.value)
-			.then(() => {
-				Alert("Contraseña copiada 📋");
-			})
-			.catch(() => {
-				Alert("No se pudo copiar 😢");
-			});
+		alert("Contraseña copiada con éxito ✅");		
 	} else {
-		Alert("No hay contraseña para copiar ⚠️");
+		alert("No hay contraseña para copiar ⚠️");
 	}
 });
 
@@ -85,7 +79,7 @@ function evaluarFuerzaContraseña(contraseña) {
 	let texto = "-";
 	let clase = "";
 
-	if (nivel <= 1) {
+	if (nivel <= 1 && contraseña.length < 8) {
 		texto = "Débil";
 		clase = "debil";
 	} else if (nivel === 2) {
@@ -102,7 +96,7 @@ function evaluarFuerzaContraseña(contraseña) {
 	nivelTexto.textContent = texto;
 
 	barras.forEach((barra, index) => {
-		barra.className = "barra"; // Reset
+		barra.className = "barra";
 		if (index < nivel) {
 			barra.classList.add("activa", clase);
 		}
